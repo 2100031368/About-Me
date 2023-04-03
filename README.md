@@ -1,40 +1,51 @@
-# Patientor - frontend
+# First steps with typescript
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple express applicaton for understanding the core concepts of TypeScript
 
-## Available Scripts
+## Start the application
 
-In the project directory, you can run:
+To start an application, do the following :
 
-### `npm install`
+```bash
+# npm dependancies
+$ yarn install
+# Start the application
+$ npm start
+```
 
-Install the project dependencies.
+You can then access the app on : [http://localhost:3003/](http://localhost:3003/)
 
-### `npm start`
+# Endpoints
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The following enpoinds are available:
+* `/bmi`: For calculating `the body mass index` based on given weight (in kilograms) and height (in centimeters). For example to get bmi for a person having height 180 and weight 72, the url is http://localhost:3003/bmi?height=180&weight=72. The response is a json of the form:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```json
+{
+  "weight": 72,
+  "height": 180,
+  "bmi": "Normal (healthy weight)"
+}
+```
 
-### `npm test`
+* `/exercises`: That calculates the average time of daily exercise hours and compares it to the target amount of daily hours. It can be used by doing a HTTP POST request to `/exercises` exercises with the input in the request body:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```json
+{
+  "daily_exercises": [1, 0, 2, 0, 3, 0, 2.5],
+  "target": 2.5
+}
+```
 
-### `npm build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The response is a json of the form:
+```json
+{
+    "periodLength": 7,
+    "trainingDays": 4,
+    "success": false,
+    "rating": 1,
+    "ratingDescription": "bad",
+    "target": 2.5,
+    "average": 1.2142857142857142
+}
+```

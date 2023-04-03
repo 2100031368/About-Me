@@ -1,25 +1,24 @@
-# Bloglist frontend
+# Phonebook
 
-In this exercise, we will now create a frontend for the bloglist backend we created in the last part.
-A login functionnality is also implemented for restricting the possibility to view and create blogs only by authenticated users. We assume that a user already exists with the good credentials.
+In this exercise, we created a simple phonebook.
 
-Since the objective of this part is to test the react app, unit tests and end-to-end (E2E) tests with cypress are also implemented.
+In this phonebook, users have the possibility to a add, update & delete a person as well as its phone number. Person's names are unique, which means that users cannot add names that already exist in the phonebook. A search field is also available in the app to filter the people by their name.
 
-## Start the application locally
+This initial state of the application is stored in a file `db.json`, which correspond to a list of users along with their numbers. This file is used by the tool `JSON Server` that acts as a backend server where the data are stored.
 
-To start an application:
+## Start the application
+
+To start an application, do the following :
 
 ```bash
-# First, you need to start the backend, to do so, head to the part4. Everything is explained in the README
-
 # Install dependancies
-$ npm install
-
-# Start the frontend application
-$ npm start
-
-# For running E2E tests
-$ npm run cypress:open        # Then, click on run all specs
+$ yarn install
+# Start the JSON Server
+$ npx json-server --port 3001 --watch db.json
+# On another terminal, start the application
+$ yarn start
 ```
 
 You can then access the app on : http://localhost:3000/
+
+You can also see the content of the JSON Server by heading to http://localhost:3001/persons

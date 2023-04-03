@@ -1,3 +1,16 @@
-# Solutions for part 5 exercises
+# Unicafe Redux
 
-In this part we return to the frontend, first looking at different possibilities for testing the React code. We will also implement token based authentication which will enable users to log in to our application.
+In this exercise, we made a simplified version of the unicafe-exercise from part 1 with handling of the state management with `Redux`. As a reminder, the unicafe app collects customer feedback with three options: good, neutral, and bad.
+
+## Start the application
+
+To start an application, do the following :
+
+```bash
+# Install dependancies
+$ npm install
+# Start the application
+$ npm start
+```
+
+You can then access the app on : [http://localhost:3000/](http://localhost:3000/)
